@@ -39,44 +39,38 @@ int main() {
     int retVal = 0;
     int testState = 0;
     struct gameState G;
-    printf("******TESTING Adventurer Card******\n");
+    printf("******TESTING Great Hall Card******\n");
 
-
-    //test new game status
-    printf("\n**Testing for typical adventurer play\n\n");
-    resetTest(7, &G); //reset test, have adventurer card in handPos 0
-    //set deck cards to control
-    G.deck[0][0] = estate;
-    G.deck[0][1] = copper; //treasure #1
-    G.deck[0][2] = smithy;
-    G.deck[0][3] = gold; //treasure #2
-    cardEffect(adventurer, -1, -1, -1, &G, 0, -1); //simulate adventurer card play
-    printf("Testing copper at position 6, expected value:4\n");   
-    if (assertTrue(4, G.hand[0][5])) {
-        printf("Assert for Function Test Passed, received value:%d\n", G.hand[0][5]);
+    
+    //test typical play of card
+    printf("\n**Testing for typical Council Room play\n\n");
+    resetTest(16, &G); //reset test, have council room in handPos 0
+    cardEffect(great_hall, -1, -1, -1, &G, 0, -1); //simulate adventurer card play
+    printf("Testing handCount for player[0], expected value:5\n");
+    if (assertTrue(5, G.handCount[0])) {
+        printf("Assert for Function Test Passed, received value:%d\n", G.handCount[0]);
     } else {
-        printf("Assert for Function Test Failed, received value:%d\n", G.hand[0][5]);
+        printf("Assert for Function Test Failed, received value:%d\n", G.handCount[0]);
         testState++;
     }
-    printf("\nTesting for gold at position 7, expected value:6\n");     
-     if (assertTrue(6, G.hand[0][6])) {
-        printf("Assert for Function Test Passed, received value:%d\n", G.hand[0][6]);
+    printf("\nTesting numActions for player[0], expected value:2\n");
+    if (assertTrue(2, G.numActions)) {
+        printf("Assert for Function Test Passed, received value:%d\n", G.numActions);
     } else {
-        printf("Assert for Function Test Failed, received value:%d\n", G.hand[0][6]);
+        printf("Assert for Function Test Failed, received value:%d\n", G.numActions);
         testState++;
-    }   
-    
-     printf("\nTesting for discardCount, expected value:2\n");     
-     if (assertTrue(2, G.discardCount[0])) {
+    }
+    printf("\nTesting for playedCardCount, expected value:1\n");
+    if (assertTrue(1, G.discardCount[0])) {
         printf("Assert for Function Test Passed, received value:%d\n", G.discardCount[0]);
     } else {
         printf("Assert for Function Test Failed, received value:%d\n\n", G.discardCount[0]);
         testState++;
-    }   
-     
+    }
+
     //display testing summary
     if (testState == 0) {
-        printf("\n\nAll Tests for the Adventurer card Passed!!\n");
+        printf("\n\nAll Tests for the Great Hall card Passed!!\n");
     } else {
         printf("\n\n%d TEST FAILURES! Reference above for specific test cases.\n", testState);
     }
