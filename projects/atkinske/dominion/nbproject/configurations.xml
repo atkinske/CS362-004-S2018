@@ -9,6 +9,7 @@
       <in>interface.c</in>
       <in>playdom.c</in>
       <in>player.c</in>
+      <in>randomtestadventurer.c</in>
       <in>rngs.c</in>
       <in>rt.c</in>
       <in>supplyTest.c</in>
@@ -51,7 +52,7 @@
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
           <buildCommand>${MAKE} -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
-          <executablePath>playdom.exe</executablePath>
+          <executablePath>randTest.exe</executablePath>
           <cTool>
             <incDir>
               <pElem></pElem>
@@ -78,6 +79,10 @@
       <item path="playdom.c" ex="false" tool="0" flavor2="3">
       </item>
       <item path="player.c" ex="false" tool="0" flavor2="3">
+      </item>
+      <item path="randomtestadventurer.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
       </item>
       <item path="rngs.c" ex="false" tool="0" flavor2="3">
       </item>

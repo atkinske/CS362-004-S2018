@@ -12,6 +12,8 @@
       <in>interface.h</in>
       <in>playdom.c</in>
       <in>player.c</in>
+      <in>randomtestadventurer.c</in>
+      <in>randomtestcouncilroom.c</in>
       <in>rngs.c</in>
       <in>rngs.h</in>
       <in>rt.c</in>
@@ -62,8 +64,8 @@
       </nativedebugger>
       <runprofile version="9">
         <runcommandpicklist>
-          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" 30</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
         </runcommandpicklist>
         <runcommand>"${OUTPUT_PATH}"</runcommand>
         <rundir>../../../../../../CS 362/Git/CS362-004-S2018/dominion</rundir>
