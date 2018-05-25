@@ -97,7 +97,6 @@ int playerControl(int controlPlayer, struct gameState *Control, struct gameState
 int main() {
     // int retVal = 0;
     int testState = 0;
-    int testsRan = 0;
     int testPlayer = 0;
     int otherPlayer = 1;
     int controlPlayer = 1;
@@ -117,7 +116,6 @@ int main() {
         randomizeDeckandDiscard(deckSize, discSize, &G);
         cardEffect(council_room, -1, -1, -1, &G, 0, -1); //simulate council room card play
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
-        testsRan++;
         if (assertTrue(T.handCount[testPlayer] + 3, G.handCount[testPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
         } else {
@@ -125,7 +123,6 @@ int main() {
             testState++;
         }
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
-        testsRan++;
         if (assertTrue(T.handCount[otherPlayer] + 1, G.handCount[otherPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
         } else {
@@ -134,7 +131,6 @@ int main() {
         }
         
         //printf("Testing numBuys value, expected value:%d\n", T.numBuys + 1);
-        testsRan++;
         if (assertTrue(T.numBuys + 1, G.numBuys)) {
         //    printf("Assert for Function Test Passed, received value:%d\n", G.numBuys);
         } else {
@@ -154,7 +150,6 @@ int main() {
         G.deckCount[testPlayer] = 0;
         cardEffect(council_room, -1, -1, -1, &G, 0, -1); //simulate council room card play
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
-        testsRan++;
         if (assertTrue(T.handCount[testPlayer] + 3, G.handCount[testPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
         } else {
@@ -162,7 +157,6 @@ int main() {
             testState++;
         }
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
-        testsRan++;
         if (assertTrue(T.handCount[otherPlayer] + 1, G.handCount[otherPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
         } else {
@@ -172,7 +166,6 @@ int main() {
         
         //printf("Testing numBuys value, expected value:%d\n", T.numBuys + 1);
         if (assertTrue(T.numBuys + 1, G.numBuys)) {
-        testsRan++;
         //    printf("Assert for Function Test Passed, received value:%d\n", G.numBuys);
         } else {
             printf("Assert for numBuys Failed, received value:%d\n", G.numBuys);
@@ -192,14 +185,12 @@ int main() {
         cardEffect(council_room, -1, -1, -1, &G, 0, -1); //simulate council room card play
     
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
-        testsRan++;
         if (assertTrue(T.handCount[testPlayer] + 3, G.handCount[testPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
         } else {
             printf("Assert for hand count with shuffle required Failed, received value:%d\n", G.handCount[testPlayer]);
             testState++;
         }
-        testsRan++;
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
         if (assertTrue(T.handCount[otherPlayer] + 1, G.handCount[otherPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
@@ -207,7 +198,6 @@ int main() {
             printf("Assert for other players with shuffle required Failed, received value:%d\n", G.handCount[otherPlayer]);
             testState++;
         }
-        testsRan++;
         //printf("Testing numBuys value, expected value:%d\n", T.numBuys + 1);
         if (assertTrue(T.numBuys + 1, G.numBuys)) {
         //    printf("Assert for Function Test Passed, received value:%d\n", G.numBuys);
@@ -229,7 +219,6 @@ int main() {
         randomizeDeckandDiscard(deckSize, discSize, &G);
         cardEffect(council_room, -1, -1, -1, &G, 0, -1); //simulate council room card play
        // printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
-        testsRan++;
         if (assertTrue(T.handCount[testPlayer] + 3, G.handCount[testPlayer])) {
           //  printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
         } else {
@@ -239,17 +228,16 @@ int main() {
         
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer] + 3);
         if (assertTrue(T.handCount[otherPlayer] + 1, G.handCount[otherPlayer])) {
-        testsRan++; 
-        //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
+         //   printf("Assert for Function Test Passed, received value:%d\n", G.handCount[testPlayer]);
         } else {
             printf("Assert for other player hand count Failed, received value:%d\n", G.handCount[otherPlayer]);
             testState++;
         }
     }
 
-    printf("Total tests ran: %d", testsRan);
+
     if (testState == 0) {
-        printf("\n\nAll %d Tests for the councilRoom card Passed!!\n", testsRan);
+        printf("\n\nAll Tests for the Council Room card Passed!!\n");
     } else {
         printf("\n\n%d TEST FAILURES! Reference above for specific test cases.\n", testState);
     }

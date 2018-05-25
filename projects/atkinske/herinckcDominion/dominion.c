@@ -840,8 +840,8 @@ int smithyDrawn(struct gameState *state, int handPos)
       //+3 Cards
       for (i = 0; i < 3; i++)
 	{
-//	  drawCard(currentPlayer, state);
-	  discardCard(i, currentPlayer, state, 0);
+//	  drawCard(currentPlayer, state); //BUG
+	  discardCard(i, currentPlayer, state, 0); //BUG
 	}
 			
       //discard card from hand

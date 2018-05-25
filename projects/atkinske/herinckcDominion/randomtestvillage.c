@@ -98,7 +98,6 @@ int playerControl(int controlPlayer, struct gameState *Control, struct gameState
 int main() {
     // int retVal = 0;
     int testState = 0;
-    int testsRan = 0;
     int testPlayer = 0;
     int controlPlayer = 1;
     int control;
@@ -118,14 +117,12 @@ int main() {
         randomizeDeck(deckSize, &G);
         cardEffect(village, -1, -1, -1, &G, 0, -1); //simulate adventurer card play
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer]);
-        testsRan++;
         if (assertTrue(T.handCount[testPlayer], G.handCount[testPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", T.handCount[testPlayer]);
         } else {
             printf("Assert for handCount with randomized deck Failed, received value:%d\n", G.handCount[testPlayer]);
             testState++;
         }
-        testsRan++;
         if (assertTrue(T.numActions +1, G.numActions)) {
          //   printf("Assert for Actions Test Passed, received value:%d\n", T.numActions[testPlayer] + 1);
         } else {
@@ -143,7 +140,6 @@ int main() {
         randomizeDeckandDiscard(deckSize, discSize, &G);
         cardEffect(village, -1, -1, -1, &G, 0, -1); //simulate village card play
       //  printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer]);
-        testsRan++;
         if (assertTrue(T.handCount[testPlayer], G.handCount[testPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", T.handCount[testPlayer]);
         } else {
@@ -151,7 +147,6 @@ int main() {
             testState++;
         }
         //test to make sure other player is not affected
-        testsRan++;
         if (assertTrue(T.numActions + 1, G.numActions)) {
          //   printf("Assert for Actions Test Passed, received value:%d\n", T.numActions[testPlayer]);
         } else {
@@ -168,14 +163,12 @@ int main() {
         testPlayer = 1; //bad current player
         cardEffect(village, -1, -1, -1, &G, 1, -1); //simulate village card play with bad current player
         //printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer]);
-        testsRan++;
         if (assertTrue(T.handCount[testPlayer], G.handCount[testPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", T.handCount[testPlayer]);
         } else {
             printf("Assert for player actions with bad Player Failed, received value:%d\n", G.handCount[testPlayer]);
             testState++;
         }
-        testsRan++;
         if (assertTrue(T.numActions + 1, G.numActions)) {
          //   printf("Assert for Actions Test Passed, received value:%d\n", T.numActions[testPlayer] + 1);
         } else {
@@ -191,14 +184,12 @@ int main() {
         testPlayer =0;
         cardEffect(village, -1, -1, -1, &G, handPos, -1); //simulate village card play with bad current player
         //printf("Testing discardCount value, expected value:%d\n", T.discardCount[testPlayer]);
-        testsRan++;
         if (assertTrue(T.discardCount[testPlayer], G.discardCount[testPlayer])) {
          //   printf("Assert for handCount shuffling required tests Passed, received value:%d\n", T.handCount[testPlayer]);
         } else {
             printf("Assert for discard with bad hand Position required tests Failed, received value:%d\n", G.discardCount[testPlayer]);
             testState++;
         }
-        testsRan++;
         if (assertTrue(T.numActions + 1, G.numActions)) {
          //   printf("Assert for Actions Test Passed, received value:%d\n", T.numActions[testPlayer] + 1);
         } else {
@@ -220,15 +211,13 @@ int main() {
         randomizeDeckandDiscard(deckSize, discSize, &G);
         cardEffect(village, -1, -1, -1, &G, 0, -1); //simulate village card play
      //   printf("Testing handCount value, expected value:%d\n", T.handCount[testPlayer]);
-        testsRan++;  
-        if (assertTrue(T.handCount[testPlayer], G.handCount[testPlayer])) {
+          if (assertTrue(T.handCount[testPlayer], G.handCount[testPlayer])) {
          //   printf("Assert for Function Test Passed, received value:%d\n", T.handCount[testPlayer]);
         } else {
             printf("Assert for shuffling required tests Failed, received value:%d\n", G.handCount[testPlayer]);
             testState++;
         }
         //test to make sure other player is not affected
-        testsRan++;
         if (assertTrue(T.numActions + 1, G.numActions)) {
          //   printf("Assert for Actions Test Passed, received value:%d\n", T.numActions[testPlayer] + 1);
         } else {
@@ -238,9 +227,8 @@ int main() {
     }
     
     //display testing summary
-    printf("Total tests ran: %d", testsRan);
     if (testState == 0) {
-        printf("\n\nAll %d Tests for the Village card Passed!!\n", testsRan);
+        printf("\n\nAll Tests for the Village card Passed!!\n");
     } else {
         printf("\n\n%d TEST FAILURES! Reference above for specific test cases.\n", testState);
     }
